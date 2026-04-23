@@ -1,0 +1,9 @@
+modalityID,modalityDescription,modalityGroup_modalityGroupID
+CT,Computed Tomography,Group1
+MRI,Magnetic Resonance Imaging,Group1
+XRAY,Conventional X-Ray,Group2
+MAMMO,Mammography,Group2
+PETCT,PET CT Scan,Group3
+NM,Nuclear Medicine Scan,Group3
+US,Ultrasound,Group4
+ECHO,Echocardiography,Group4

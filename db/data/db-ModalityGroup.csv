@@ -1,0 +1,5 @@
+modalityGroupID,modalityGroupDescription,firstThresholdVolume,secondThresholdVolume,appliedDiscountForFirstThreshold,appliedDiscountForSecondThreshold,createdAt,createdBy,modifiedAt,modifiedBy
+Group1,Advanced Imaging,10.00,20.00,8.00,15.00,2024-01-15T08:00:00Z,admin,2024-01-15T08:00:00Z,admin
+Group2,Conventional Radiology,5.00,12.00,3.00,9.00,2024-01-15T08:00:00Z,admin,2024-01-15T08:00:00Z,admin
+Group3,Nuclear Medicine,15.00,25.00,12.00,20.00,2024-01-15T08:00:00Z,admin,2024-01-15T08:00:00Z,admin
+Group4,Ultrasound,8.00,18.00,5.00,14.00,2024-01-15T08:00:00Z,admin,2024-01-15T08:00:00Z,admin

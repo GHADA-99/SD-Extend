@@ -1,0 +1,231 @@
+<mvc:View
+    controllerName="myproject.controller.Modality"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:core="sap.ui.core">
+
+    <Page id="ModalityPage" title="{i18n>Modalities}"
+        titleAlignment="Center"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
+        <content>
+            <ScrollContainer id="_IDGenScrollContainer" height="100%" vertical="true" horizontal="false">
+                <VBox id="_IDGenVBox" class="sapUiMediumMargin">
+
+                    <!-- ─── Filter Card ─── -->
+                    <f:Card id="_IDGenCard1" class="sapUiSmallMarginBottom" width="100%">
+                        <f:header>
+                            <card:Header id="_IDGenHeader"
+                                title="{i18n>filterTitle}"
+                                subtitle="{i18n>filterSubtitle}"
+                                iconSrc="sap-icon://filter"
+                                iconDisplayShape="Square"
+                                iconBackgroundColor="Accent1"/>
+                        </f:header>
+                        <f:content>
+                            <VBox id="_IDGenVBox1" class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom">
+                                <HBox id="_IDGenHBox" wrap="Wrap" alignItems="End">
+
+                                    <!-- Modality Group -->
+                                    <VBox id="_IDGenVBox2" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="_IDGenLabel" text="{i18n>filterGroup}" labelFor="groupFilter"/>
+                                        <ComboBox
+                                            id="groupFilter"
+                                            width="16rem"
+                                            placeholder="{i18n>allGroups}"
+                                            selectionChange="onFilter"
+                                            change="onFilter"
+                                            items="{path: '/ModalityGroups', templateShareable: false}">
+                                            <core:ListItem id="_IDGenListItem"
+                                                key="{modalityGroupID}"
+                                                text="{modalityGroupID} · {modalityGroupDescription}"/>
+                                        </ComboBox>
+                                    </VBox>
+
+                                    <!-- Modality -->
+                                    <VBox id="_IDGenVBox3" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="_IDGenLabel1" text="{i18n>filterModality}" labelFor="modalityFilter"/>
+                                        <ComboBox
+                                            id="modalityFilter"
+                                            width="16rem"
+                                            placeholder="{i18n>allModalities}"
+                                            selectionChange="onFilter"
+                                            change="onFilter"
+                                            items="{path: '/Modalities', templateShareable: false}">
+                                            <core:ListItem id="_IDGenListItem1"
+                                                key="{modalityID}"
+                                                text="{modalityID} · {modalityDescription}"/>
+                                        </ComboBox>
+                                    </VBox>
+
+                                    <!-- First Threshold Volume -->
+                                    <VBox id="_IDGenVBox4" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="_IDGenLabel2" text="{i18n>firstThreshold}" labelFor="firstThresholdFilter"/>
+                                        <Select id="firstThresholdFilter" width="14rem" change="onFilter">
+                                            <core:Item id="_IDGenItem"  key=""   text="{i18n>anyThreshold}"/>
+                                            <core:Item id="_IDGenItem1" key="5"  text="≥ 5"/>
+                                            <core:Item id="_IDGenItem2" key="10" text="≥ 10"/>
+                                            <core:Item id="_IDGenItem3" key="15" text="≥ 15"/>
+                                        </Select>
+                                    </VBox>
+
+                                    <!-- Second Threshold Volume -->
+                                    <VBox id="_IDGenVBox6" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="_IDGenLabel3" text="{i18n>secondThreshold}" labelFor="secondThresholdFilter"/>
+                                        <Select id="secondThresholdFilter" width="14rem" change="onFilter">
+                                            <core:Item id="_IDGenItem4" key=""   text="{i18n>anyThreshold}"/>
+                                            <core:Item id="_IDGenItem5" key="12" text="≥ 12"/>
+                                            <core:Item id="_IDGenItem6" key="18" text="≥ 18"/>
+                                            <core:Item id="_IDGenItem7" key="25" text="≥ 25"/>
+                                        </Select>
+                                    </VBox>
+
+                                    <!-- Applied Discount — First Threshold -->
+                                    <VBox id="_IDGenVBox7" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="_IDGenLabel4" text="{i18n>firstDiscount}" labelFor="firstDiscountFilter"/>
+                                        <Select id="firstDiscountFilter" width="14rem" change="onFilter">
+                                            <core:Item id="_IDGenItem8"  key=""   text="{i18n>anyThreshold}"/>
+                                            <core:Item id="_IDGenItem9"  key="3"  text="≥ 3%"/>
+                                            <core:Item id="_IDGenItem10" key="5"  text="≥ 5%"/>
+                                            <core:Item id="_IDGenItem11" key="10" text="≥ 10%"/>
+                                        </Select>
+                                    </VBox>
+
+                                    <!-- Applied Discount — Second Threshold -->
+                                    <VBox id="_IDGenVBox8" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="_IDGenLabel5" text="{i18n>secondDiscount}" labelFor="secondDiscountFilter"/>
+                                        <Select id="secondDiscountFilter" width="14rem" change="onFilter">
+                                            <core:Item id="_IDGenItem12" key=""   text="{i18n>anyThreshold}"/>
+                                            <core:Item id="_IDGenItem13" key="9"  text="≥ 9%"/>
+                                            <core:Item id="_IDGenItem14" key="14" text="≥ 14%"/>
+                                            <core:Item id="_IDGenItem15" key="20" text="≥ 20%"/>
+                                        </Select>
+                                    </VBox>
+
+                                    <!-- Reset -->
+                                    <VBox id="_IDGenVBox5" class="sapUiSmallMarginTop">
+                                        <Button id="_IDGenButton1"
+                                            text="{i18n>resetFilters}"
+                                            icon="sap-icon://clear-filter"
+                                            type="Transparent"
+                                            press="onResetFilters"/>
+                                    </VBox>
+
+                                </HBox>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <!-- ─── Results Card ─── -->
+                    <f:Card id="_IDGenCard2" width="100%">
+                        <f:header>
+                            <card:Header id="_IDGenHeader1"
+                                title="{i18n>resultsTitle}"
+                                subtitle="{i18n>resultsSubtitle}"
+                                iconSrc="sap-icon://org-chart"
+                                iconDisplayShape="Square"
+                                iconBackgroundColor="Accent2"/>
+                        </f:header>
+                        <f:content>
+                            <List
+                                id="modalityGroupList"
+                                items="{
+                                    path: '/ModalityGroups',
+                                    parameters: { $expand: 'modalities' }
+                                }"
+                                noDataText="{i18n>noData}">
+
+                                <CustomListItem id="_IDGenCustomListItem" type="Inactive">
+                                    <Panel id="_IDGenPanel" expandable="true" expanded="false" width="100%">
+
+                                        <headerToolbar>
+                                            <OverflowToolbar id="_IDGenOverflowToolbar">
+                                                <Title id="_IDGenTitle"
+                                                    text="{modalityGroupID} · {modalityGroupDescription}"
+                                                    level="H4"/>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+
+                                        <content>
+                                            <!-- Threshold & Discount summary row -->
+                                            <HBox id="_IDGenHBox2" wrap="Wrap"
+                                                class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop sapUiSmallMarginBottom">
+                                                <VBox id="_IDGenVBox17" class="sapUiMediumMarginEnd">
+                                                    <Label id="_IDGenLabel10" text="{i18n>firstThresholdLabel}" design="Bold"/>
+                                                    <ObjectNumber id="_IDGenObjectNumber1"
+                                                        number="{firstThresholdVolume}"
+                                                        emphasized="false"
+                                                        state="Success"/>
+                                                </VBox>
+                                                <VBox id="_IDGenVBox18" class="sapUiMediumMarginEnd">
+                                                    <Label id="_IDGenLabel11" text="{i18n>firstDiscountLabel}" design="Bold"/>
+                                                    <ObjectNumber id="_IDGenObjectNumber2"
+                                                        number="{appliedDiscountForFirstThreshold}"
+                                                        unit="%"
+                                                        emphasized="false"
+                                                        state="Information"/>
+                                                </VBox>
+                                                <VBox id="_IDGenVBox19" class="sapUiMediumMarginEnd">
+                                                    <Label id="_IDGenLabel12" text="{i18n>secondThresholdLabel}" design="Bold"/>
+                                                    <ObjectNumber id="_IDGenObjectNumber3"
+                                                        number="{secondThresholdVolume}"
+                                                        emphasized="false"
+                                                        state="Warning"/>
+                                                </VBox>
+                                                <VBox id="_IDGenVBox20">
+                                                    <Label id="_IDGenLabel13" text="{i18n>secondDiscountLabel}" design="Bold"/>
+                                                    <ObjectNumber id="_IDGenObjectNumber4"
+                                                        number="{appliedDiscountForSecondThreshold}"
+                                                        unit="%"
+                                                        emphasized="false"
+                                                        state="Error"/>
+                                                </VBox>
+                                            </HBox>
+
+                                            <Table id="_IDGenTable"
+                                                items="{modalities}"
+                                                noDataText="{i18n>noModalities}"
+                                                fixedLayout="false">
+
+                                                <headerToolbar>
+                                                    <OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear">
+                                                        <Title id="_IDGenTitle1" text="{i18n>modalitiesSubtitle}" level="H5"/>
+                                                    </OverflowToolbar>
+                                                </headerToolbar>
+
+                                                <columns>
+                                                    <Column id="_IDGenColumn" width="10rem">
+                                                        <Text id="_IDGenText" text="{i18n>colModalityID}"/>
+                                                    </Column>
+                                                    <Column id="_IDGenColumn1">
+                                                        <Text id="_IDGenText1" text="{i18n>colModalityDescription}"/>
+                                                    </Column>
+                                                </columns>
+
+                                                <items>
+                                                    <ColumnListItem id="_IDGenColumnListItem" type="Inactive">
+                                                        <cells>
+                                                            <ObjectIdentifier id="_IDGenObjectIdentifier" title="{modalityID}"/>
+                                                            <Text id="_IDGenText2" text="{modalityDescription}"/>
+                                                        </cells>
+                                                    </ColumnListItem>
+                                                </items>
+
+                                            </Table>
+                                        </content>
+
+                                    </Panel>
+                                </CustomListItem>
+
+                            </List>
+                        </f:content>
+                    </f:Card>
+
+                </VBox>
+            </ScrollContainer>
+        </content>
+    </Page>
+</mvc:View>

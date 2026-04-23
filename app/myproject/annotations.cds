@@ -1,0 +1,1 @@
+using CasesCollective as service from '../../srv/service';

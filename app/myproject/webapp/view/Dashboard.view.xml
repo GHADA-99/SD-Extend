@@ -1,0 +1,75 @@
+<mvc:View
+    controllerName="myproject.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards">
+
+    <tnt:ToolPage id="toolPage" sideExpanded="true">
+
+        <!-- ─── Top header bar ─── -->
+        <tnt:header>
+            <tnt:ToolHeader id="_IDGenToolHeader1">
+                <Button
+                    id="sidebarToggle"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    press="onToggleSidebar"/>
+                <Title id="_IDGenTitle2" text="{i18n>appTitle}" titleStyle="H4"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                <Button
+                    id="themeToggleBtn"
+                    icon="{ui>/themeIcon}"
+                    tooltip="{ui>/themeTooltip}"
+                    type="Transparent"
+                    press="onToggleTheme"/>
+            </tnt:ToolHeader>
+        </tnt:header>
+
+        <!-- ─── Left sidebar ─── -->
+        <tnt:sideContent>
+            <tnt:SideNavigation id="sideNav" itemSelect="onNavItemSelect">
+                <tnt:item>
+                    <tnt:NavigationList id="_IDGenNavigationList">
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem"
+                            text="{i18n>navCases}"
+                            icon="sap-icon://list"
+                            key="cases"/>
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem1"
+                            text="{i18n>navModalities}"
+                            icon="sap-icon://org-chart"
+                            key="modalities"/>
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem2"
+                            text="{i18n>navServiceOrders}"
+                            icon="sap-icon://document"
+                            key="serviceOrders"/>
+                    </tnt:NavigationList>
+                </tnt:item>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+
+        <!-- ─── Main content ─── -->
+        <tnt:mainContents>
+            <Page id="_IDGenPage" showHeader="false">
+                <content>
+                    <VBox id="_IDGenVBox16"
+                        class="sapUiMediumMargin"
+                        alignItems="Center">
+                        <f:Card id="_IDGenCard4" width="32rem">
+                            <f:header>
+                                <card:Header id="_IDGenHeader4"
+                                    title="{i18n>welcomeTitle}"
+                                    subtitle="{i18n>welcomeSubtitle}"
+                                    iconSrc="sap-icon://home"
+                                    iconDisplayShape="Square"
+                                    iconBackgroundColor="Accent6"/>
+                            </f:header>
+                        </f:Card>
+                    </VBox>
+                </content>
+            </Page>
+        </tnt:mainContents>
+
+    </tnt:ToolPage>
+</mvc:View>

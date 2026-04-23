@@ -1,0 +1,15 @@
+examCode,descriptionInEnglish,descriptionInArabic,priceWithoutTax,creationData,modalityID,modalityGroup,createdAt,createdBy,modifiedAt,modifiedBy
+CT0001,Brain CT without contrast,أشعة مقطعية للدماغ بدون صبغة,850.00,2024-01-10,CT,Group1,2024-01-10T08:00:00Z,admin,2024-01-10T08:00:00Z,admin
+CT0002,Chest CT with contrast,أشعة مقطعية للصدر مع صبغة,950.00,2024-01-10,CT,Group1,2024-01-10T08:00:00Z,admin,2024-01-10T08:00:00Z,admin
+CT0003,Abdomen CT with contrast,أشعة مقطعية للبطن مع صبغة,1050.00,2024-01-11,CT,Group1,2024-01-11T08:00:00Z,admin,2024-01-11T08:00:00Z,admin
+MRI001,Brain MRI without contrast,رنين مغناطيسي للدماغ بدون صبغة,1200.00,2024-01-12,MRI,Group1,2024-01-12T08:00:00Z,admin,2024-01-12T08:00:00Z,admin
+MRI002,Lumbar Spine MRI,رنين مغناطيسي للعمود الفقري القطني,1300.00,2024-01-12,MRI,Group1,2024-01-12T08:00:00Z,admin,2024-01-12T08:00:00Z,admin
+MRI003,Right Knee MRI,رنين مغناطيسي الركبة اليمنى,1100.00,2024-01-13,MRI,Group1,2024-01-13T08:00:00Z,admin,2024-01-13T08:00:00Z,admin
+XR0001,Chest X-Ray PA View,أشعة سينية للصدر,150.00,2024-01-15,XRAY,Group2,2024-01-15T08:00:00Z,admin,2024-01-15T08:00:00Z,admin
+XR0002,Lumbar Spine X-Ray AP,أشعة سينية للعمود الفقري القطني,180.00,2024-01-15,XRAY,Group2,2024-01-15T08:00:00Z,admin,2024-01-15T08:00:00Z,admin
+XR0003,Right Hand X-Ray,أشعة سينية لليد اليمنى,120.00,2024-01-16,XRAY,Group2,2024-01-16T08:00:00Z,admin,2024-01-16T08:00:00Z,admin
+NM0001,Full Body Bone Scan,مسح عظام كامل الجسم,2500.00,2024-01-20,NM,Group3,2024-01-20T08:00:00Z,admin,2024-01-20T08:00:00Z,admin
+NM0002,Cardiac Viability FDG PET CT,مسح قلبي بـ PET CT,3200.00,2024-01-21,PETCT,Group3,2024-01-21T08:00:00Z,admin,2024-01-21T08:00:00Z,admin
+US0001,Abdominal Ultrasound,موجات فوق صوتية للبطن,300.00,2024-01-22,US,Group4,2024-01-22T08:00:00Z,admin,2024-01-22T08:00:00Z,admin
+US0002,Pelvic Ultrasound,موجات فوق صوتية للحوض,280.00,2024-01-22,US,Group4,2024-01-22T08:00:00Z,admin,2024-01-22T08:00:00Z,admin
+EC0001,Cardiac Echocardiography,تخطيط صدى القلب,650.00,2024-01-23,ECHO,Group4,2024-01-23T08:00:00Z,admin,2024-01-23T08:00:00Z,admin

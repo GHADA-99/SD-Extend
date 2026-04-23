@@ -1,0 +1,6 @@
+<mvc:View controllerName="myproject.controller.ServiceOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="ServiceOrderPage" title="{i18n>serviceOrder}">
+    </Page>
+</mvc:View>

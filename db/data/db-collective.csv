@@ -1,0 +1,9 @@
+examCode,descriptionInEnglish,descriptionInArabic,priceWithoutTax,creationData,modalityID,modalityGroup,totalQtyPerModality,createdAt,createdBy,modifiedAt,modifiedBy
+PKG001,Cardiac Imaging Package CT,باقة تصوير قلبي بالأشعة المقطعية,2800.00,2024-02-01,CT,Group1,5,2024-02-01T08:00:00Z,admin,2024-02-01T08:00:00Z,admin
+PKG002,Neuro Imaging Package MRI,باقة تصوير عصبي بالرنين المغناطيسي,3500.00,2024-02-01,MRI,Group1,4,2024-02-01T08:00:00Z,admin,2024-02-01T08:00:00Z,admin
+PKG003,Full Body X-Ray Package,باقة أشعة سينية لكامل الجسم,600.00,2024-02-05,XRAY,Group2,10,2024-02-05T08:00:00Z,admin,2024-02-05T08:00:00Z,admin
+PKG004,Screening Mammography Package,باقة فحص الثدي بالماموغرافي,900.00,2024-02-05,MAMMO,Group2,6,2024-02-05T08:00:00Z,admin,2024-02-05T08:00:00Z,admin
+PKG005,Oncology PET CT Package,باقة PET CT للأورام,8500.00,2024-02-10,PETCT,Group3,3,2024-02-10T08:00:00Z,admin,2024-02-10T08:00:00Z,admin
+PKG006,Bone Scan Package,باقة مسح العظام,6000.00,2024-02-10,NM,Group3,4,2024-02-10T08:00:00Z,admin,2024-02-10T08:00:00Z,admin
+PKG007,Abdominal Ultrasound Package,باقة الموجات فوق الصوتية للبطن,1200.00,2024-02-15,US,Group4,6,2024-02-15T08:00:00Z,admin,2024-02-15T08:00:00Z,admin
+PKG008,Cardiac Echo Package,باقة تخطيط صدى القلب,2000.00,2024-02-15,ECHO,Group4,5,2024-02-15T08:00:00Z,admin,2024-02-15T08:00:00Z,admin
