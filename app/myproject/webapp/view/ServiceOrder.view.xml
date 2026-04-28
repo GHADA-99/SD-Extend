@@ -1,6 +1,204 @@
-<mvc:View controllerName="myproject.controller.ServiceOrder"
+<mvc:View
+    controllerName="myproject.controller.ServiceOrder"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="ServiceOrderPage" title="{i18n>serviceOrder}">
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:core="sap.ui.core">
+
+    <Page id="ServiceOrderPage" title="{i18n>serviceOrder}"
+        titleAlignment="Center"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
+        <content>
+            <ScrollContainer id="soScroll" height="100%" vertical="true" horizontal="false">
+                <VBox id="soVBox" class="sapUiMediumMargin">
+
+                    <!-- ─── Filter Card ─── -->
+                    <f:Card id="soFilterCard" class="sapUiSmallMarginBottom" width="100%">
+                        <f:header>
+                            <card:Header id="soFilterHeader"
+                                title="{i18n>filterTitle}"
+                                subtitle="{i18n>soFilterSubtitle}"
+                                iconSrc="sap-icon://filter"
+                                iconDisplayShape="Square"
+                                iconBackgroundColor="Accent1"/>
+                        </f:header>
+                        <f:content>
+                            <VBox id="soFilterContent" class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom">
+                                <HBox id="soFilterHBox" wrap="Wrap" alignItems="End">
+
+                                    <!-- Status -->
+                                    <VBox id="soStatusVBox" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="soStatusLabel" text="{i18n>filterStatus}" labelFor="soStatusCombo"/>
+                                        <ComboBox
+                                            id="soStatusCombo"
+                                            width="14rem"
+                                            placeholder="{i18n>allStatuses}"
+                                            selectionChange="onFilter"
+                                            change="onFilter">
+                                            <core:Item id="soStatusDraft"     key="Draft"     text="{i18n>statusDraft}"/>
+                                            <core:Item id="soStatusConfirmed" key="Confirmed" text="{i18n>statusConfirmed}"/>
+                                        </ComboBox>
+                                    </VBox>
+
+                                    <!-- Order Date -->
+                                    <VBox id="soDateVBox" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="soDateLabel" text="{i18n>colOrderDate}" labelFor="soDateInput"/>
+                                        <DatePicker
+                                            id="soDateInput"
+                                            width="14rem"
+                                            displayFormat="dd/MM/yyyy"
+                                            valueFormat="yyyy-MM-dd"
+                                            placeholder="DD/MM/YYYY"
+                                            change="onFilter"/>
+                                    </VBox>
+
+                                    <!-- ERP ID -->
+                                    <VBox id="soERPIDVBox" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="soERPIDLabel" text="{i18n>filterERPID}" labelFor="soERPIDInput"/>
+                                        <SearchField
+                                            id="soERPIDInput"
+                                            width="14rem"
+                                            placeholder="{i18n>searchERPID}"
+                                            search="onFilter"
+                                            liveChange="onFilter"/>
+                                    </VBox>
+
+                                    <!-- Finished -->
+                                    <VBox id="soFinishedVBox" class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+                                        <Label id="soFinishedLabel" text="{i18n>filterFinished}" labelFor="soFinishedCombo"/>
+                                        <ComboBox
+                                            id="soFinishedCombo"
+                                            width="10rem"
+                                            placeholder="{i18n>allFinished}"
+                                            selectionChange="onFilter"
+                                            change="onFilter">
+                                            <core:Item id="soFinishedYes" key="true"  text="{i18n>finishedYes}"/>
+                                            <core:Item id="soFinishedNo"  key="false" text="{i18n>finishedNo}"/>
+                                        </ComboBox>
+                                    </VBox>
+
+                                    <!-- Reset -->
+                                    <VBox id="soResetVBox" class="sapUiSmallMarginTop">
+                                        <Button id="soResetBtn"
+                                            text="{i18n>resetFilters}"
+                                            icon="sap-icon://clear-filter"
+                                            type="Transparent"
+                                            press="onResetFilters"/>
+                                    </VBox>
+
+                                </HBox>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <!-- ─── Results Card ─── -->
+                    <f:Card id="soResultsCard" width="100%">
+                        <f:header>
+                            <card:Header id="soResultsHeader"
+                                title="{i18n>serviceOrderResultsTitle}"
+                                subtitle="{i18n>serviceOrderResultsSubtitle}"
+                                iconSrc="sap-icon://sales-order"
+                                iconDisplayShape="Square"
+                                iconBackgroundColor="Accent3"/>
+                        </f:header>
+                        <f:content>
+                            <VBox id="soResultsContent">
+                            <Toolbar id="soTableToolbar" style="Clear">
+                                <ToolbarSpacer id="soTableSpacer"/>
+                                <Button id="soNewBtn"
+                                    text="{i18n>createBtn}"
+                                    icon="sap-icon://add"
+                                    type="Emphasized"
+                                    press="onCreateNew"/>
+                            </Toolbar>
+                            <Table
+                                id="soTable"
+                                items="{path: '/ServiceOrder'}"
+                                noDataText="{i18n>noServiceOrders}"
+                                growing="true"
+                                growingThreshold="10"
+                                fixedLayout="false"
+                                mode="None">
+
+                                <columns>
+                                    <Column id="soColSONum">
+                                        <Text id="soColSONumHdr" text="{i18n>colServiceOrderNum}"/>
+                                    </Column>
+                                    <Column id="soColPackage">
+                                        <Text id="soColPackageHdr" text="{i18n>colPackageCode}"/>
+                                    </Column>
+                                    <Column id="soColOrderDate">
+                                        <Text id="soColOrderDateHdr" text="{i18n>colOrderDate}"/>
+                                    </Column>
+                                    <Column id="soColStatus">
+                                        <Text id="soColStatusHdr" text="{i18n>colStatus}"/>
+                                    </Column>
+                                    <Column id="soColGross" hAlign="End">
+                                        <Text id="soColGrossHdr" text="{i18n>colGrossAmount}"/>
+                                    </Column>
+                                    <Column id="soColDisc" hAlign="End">
+                                        <Text id="soColDiscHdr" text="{i18n>colDiscountPct}"/>
+                                    </Column>
+                                    <Column id="soColDiscAmt" hAlign="End">
+                                        <Text id="soColDiscAmtHdr" text="{i18n>colDiscountAmount}"/>
+                                    </Column>
+                                    <Column id="soColNet" hAlign="End">
+                                        <Text id="soColNetHdr" text="{i18n>colNetAmount}"/>
+                                    </Column>
+                                    <Column id="soColERPID">
+                                        <Text id="soColERPIDHdr" text="{i18n>colERPID}"/>
+                                    </Column>
+                                    <Column id="soColFinished" hAlign="Center">
+                                        <Text id="soColFinishedHdr" text="{i18n>colFinished}"/>
+                                    </Column>
+                                </columns>
+
+                                <items>
+                                    <ColumnListItem id="soListItem" type="Navigation" press="onRowPress">
+                                        <cells>
+                                            <ObjectIdentifier id="soSONumCell"
+                                                title="{serviceOrderNumber}"
+                                                text="{serviceOrderID}"/>
+                                            <ObjectIdentifier id="soPackageCell" title="{collective_examCode}"/>
+                                            <Text id="soOrderDateCell" text="{
+                                                path: 'orderDate',
+                                                type: 'sap.ui.model.odata.type.Date',
+                                                formatOptions: { style: 'medium' }
+                                            }"/>
+                                            <ObjectStatus id="soStatusCell"
+                                                text="{status}"
+                                                state="{path: 'status', formatter: '.formatStatusState'}"/>
+                                            <ObjectNumber id="soGrossCell"
+                                                number="{grossAmount}"
+                                                unit="SAR"/>
+                                            <ObjectNumber id="soDiscCell"
+                                                number="{discountPercent}"
+                                                unit="%"/>
+                                            <ObjectNumber id="soDiscAmtCell"
+                                                number="{discountAmount}"
+                                                unit="SAR"/>
+                                            <ObjectNumber id="soNetCell"
+                                                number="{netAmount}"
+                                                unit="SAR"
+                                                state="Success"/>
+                                            <Text id="soERPIDCell" text="{serviceOrderERPID}"/>
+                                            <ObjectStatus id="soFinishedCell"
+                                                text="{path: 'finished', formatter: '.formatFinishedText'}"
+                                                state="{path: 'finished', formatter: '.formatFinishedState'}"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+
+                            </Table>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                </VBox>
+            </ScrollContainer>
+        </content>
     </Page>
 </mvc:View>

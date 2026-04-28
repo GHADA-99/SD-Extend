@@ -127,6 +127,20 @@
           "target": [
             "TargetCases"
           ]
+        },
+        {
+          "name": "RouteCollectiveCreate",
+          "pattern": "Collective/create",
+          "target": [
+            "TargetCollective"
+          ]
+        },
+        {
+          "name": "RouteCollective",
+          "pattern": "Collective/{examCode}",
+          "target": [
+            "TargetCollective"
+          ]
         }
       ],
       "targets": {
@@ -145,6 +159,10 @@
         "TargetCases": {
           "id": "Cases",
           "name": "Cases"
+        },
+        "TargetCollective": {
+          "id": "Collective",
+          "name": "Collective"
         }
       }
     },

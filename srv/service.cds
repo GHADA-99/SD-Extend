@@ -6,5 +6,5 @@ service CasesCollective {
     entity Modalities           as projection on my.modalities;
     entity ModalityGroups       as projection on my.ModalityGroup;
     entity Collective           as projection on my.collective;
-
+    entity ServiceOrder as projection on my.serviceOrder;
 }

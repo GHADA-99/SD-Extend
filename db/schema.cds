@@ -45,3 +45,17 @@ entity collective : managed{
     modalityGroup : String(6);
     totalQtyPerModality : Integer;
 }
+
+entity serviceOrder : managed {
+    key serviceOrderID    : UUID;
+    serviceOrderNumber    : String(20);
+    collective            : Association to collective;
+    orderDate             : Date;
+    status                : String(20) default 'Draft';
+    grossAmount           : Price;
+    discountPercent       : Decimal;
+    discountAmount        : Price;
+    netAmount             : Price;
+    serviceOrderERPID     : String;
+    finished              : Boolean default false;
+}
